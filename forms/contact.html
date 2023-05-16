@@ -1,0 +1,28 @@
+      <div id="form-name" class="bentlyForm">
+        <label for="name">Your Name*</label>
+        <?= $this->form->name->renderViewHelper() ?>
+        <?= $this->form->name->renderErrors() ?>
+      </div>
+      <div id="form-email" class="bentlyForm">
+        <label for="email">Your Email*</label>
+        <?= $this->form->email->renderViewHelper() ?>
+        <?= $this->form->email->renderErrors() ?>
+      </div>
+      <div id="form-reason" class="bentlyForm">
+        <div class="styled-select">
+          <span class="icon"></span>
+        </div>
+        <label for="reason">Reason for Contacting Us:</label>
+        <?= $this->form->reason->renderViewHelper() ?>
+        <?= $this->form->reason->renderErrors() ?>
+        <span class="icon"></span>
+      </div>
+      <div id="form-msg" class="bentlyForm">
+        <label for="message">Your Message:</label>
+        <?= $this->form->message->renderViewHelper() ?>
+        <?= $this->form->message->renderErrors() ?>
+      </div>
+      <div id="form-btn" class="bentlyForm">
+      <button type="submit" id="submit" name="submit" value="submit" class="callout-button-no-pad contact-form-button">Send Message</button>
+      <input type="hidden" name="recaptcha_response" id="recaptchaResponse">
+      <div id="recaptcha-badge-area">

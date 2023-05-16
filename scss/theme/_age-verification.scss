@@ -1,0 +1,171 @@
+#modal_screen {
+  position: fixed;
+  top:0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 9999;
+  background-color:#1f1f1f;
+  opacity:.96;
+  @media #{$medium-up} {
+    background-image:url('/images/age-background.jpg');
+    background-size:cover;
+    opacity:1;
+  }
+}
+
+#modal_screen.nope {
+  // background-color: #1e0924; 
+}
+
+#modal_content {
+  position: fixed;
+  top:3rem;
+  z-index: 1101;
+  margin: 0 auto;
+  background:url('/images/age-verification-logo.png') no-repeat top center;
+  background-size:contain;
+  width:100%;
+  height:8rem;
+  max-height:33%;
+  @media #{$medium-up} {
+    position:fixed;
+    background:url('/images/form-container.png') no-repeat top center;
+    background-size:contain;
+    width:100%;
+    height:27.37em;
+    margin:0 auto;
+    margin-top:calc(50vh - 17em);
+    max-height:100%;
+  }
+}
+
+#modal_content_wrapper {
+  position:relative;
+  font-family: $sans-semibold;
+  color:white;
+}
+
+.content_wrapper {
+  position:absolute;
+  top:110%;
+  @media #{$medium-up} {
+    position:absolute;
+    top:60%;
+    width:30em;
+    margin:0 auto;
+    left:0;
+    right:0;
+  }
+}
+
+#modal_content h2 {
+  margin: 0 0 0 0;
+  color:white;
+  font-size:4vw;
+  max-width:60%;
+  margin:0 auto;
+  text-align:center;
+  font-family: $sans-semibold;
+  @media #{$medium-up} {
+    max-width:70%;
+    font-size:1.5em;
+  }
+}
+
+#modal_content p {
+  max-width: 75%;
+}
+
+#modal_content nav {
+  display:table; 
+  width: 50%; 
+  margin:.5em 0 0 25%;
+}
+#modal_content nav ul {
+  display:table-row; 
+  width: 50%; 
+  margin:0; 
+  padding:0;
+}
+
+#modal_content nav li {
+  display: table-cell; 
+  text-align: right; 
+  width: auto;
+}
+
+#modal_content nav:after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+#modal_content nav a.av_btn {
+  display:block;
+  text-align:center;
+  width: 80px;
+  margin:1em auto 0;
+  text-decoration: none;
+  padding:1em;
+  color: #fff;
+  text-transform: uppercase;
+  border:2px solid #976a4e;
+  transition: $transition;
+}
+
+#modal_content nav a.av_btn:hover {
+  background:white;
+  color:black !important;
+  border:2px solid black;
+}
+
+#modal_regret_wrapper {
+  width:100%;
+  position:absolute;
+  z-index:9999;
+  top:100%;
+  margin:0 auto;
+  
+  color:white;
+  text-align:center;
+  height:10rem;
+  @media #{$medium-up} {
+    max-width:40%;
+    top:58%;
+  }
+}
+
+#modal_regret_wrapper h2 {
+  padding-top:.5em;
+  margin-bottom:.5rem;
+  @media #{$medium-up} {
+  }
+}
+
+#modal_regret_wrapper p {
+  width:60%;
+  margin:0 auto;
+  text-align:center !important;
+  font-family: $sans-semibold;
+  @media #{$medium-up} {
+    max-width:100%;
+  }
+}
+
+.privacy-link {
+  font-family: $sans-semibold;
+  color:white;
+  width:100%;
+  text-align:center;
+  padding-top:1em;
+  max-width:100% !important;
+}
+
+.privacy-link a {
+  font-family: $sans-semibold;
+  font-size:.75em;
+  color:white;
+  width:100%;
+  text-decoration:underline;
+}

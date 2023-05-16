@@ -1,0 +1,225 @@
+// Shopify failure: replace mixins and variables
+
+// breakpoints
+
+// small: 0px,
+// medium: 40em,
+// large: 65em,
+// xlarge: 75em,
+// xxlarge: 90em
+
+// med+ breakpoint
+// @media screen and (min-width: 40em) {}
+
+// colors
+
+// $HeritageCopper: #8d5e44; 
+// $HeritageDark: #1d1d1d;
+// $HeritageTypeLight: #F8F4ED;
+// $HeritageTypeDark: #98694D;
+// $HeritageBackground: #f7f2ea;
+
+// // fonts
+
+// .sweetsans {
+//   font-family: "Sweet Sans";
+//   font-style: normal;
+//   font-display: auto;
+// }
+
+// .chronicle {
+//   font-family: "Chronicle Text G1 A", "Chronicle Text G1 B";
+//   font-style: normal;
+//   font-display: auto;
+// }
+
+// .surveyor {
+//   font-family: "Surveyor Display A", "Surveyor Display B";
+//   font-style: normal;
+//   font-weight: 700;
+// }
+
+
+// Product page Layout
+
+.shopify_product_page-product aside {
+  grid-column:span 12;
+}
+.shopify_product_page-product article {
+  grid-column:span 12;
+}
+
+@media screen and (min-width: 40em) {
+  .shopify_product_page-product aside {
+    grid-column:span 4;
+  }
+  .shopify_product_page-product article {
+    grid-column:span 8;
+  }
+}
+
+.shopify_product_page-product article,
+.shopify_product_page-product aside {
+  margin-top:3rem; 
+}
+
+// Product Page module
+
+.shopify_product_page-product figure img {
+  max-width:50%;
+  height:auto;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
+
+.shopify_product_page-product ul {
+  font-family: "Sweet Sans";
+  line-height: 1.5;
+  color: #98694D;
+  font-size: .9375rem;
+  margin-bottom: .46875rem;
+  padding:.3rem 0;
+  -webkit-column-break-inside: avoid;
+  page-break-inside: avoid;
+  break-inside: avoid;
+  list-style-type: disc;
+  list-style-position: outside;
+  margin-left:1.1rem;
+}
+
+.shopify_product_page-product h4 {
+  margin-top:1.5rem;
+}
+
+.shopify_button {
+  border: 2px solid #1d1d1d;
+  background-color: transparent;
+  @extend .sweetsans;
+  font-weight:700;
+  padding: .75rem 1.25rem;
+  margin: 1.75rem 0;
+  cursor: pointer;
+  text-transform: uppercase;
+  font-size: .9375rem;
+  transition-duration:100ms;
+}
+
+
+.shopify_button:hover {
+  background-color: #1d1d1d;
+  color: #f7f2ea;
+  border-color: transparent;
+}
+
+
+
+.cart_form {
+  width:94%;
+  max-width:75rem;
+  margin:0 auto;
+  font-family: "Sweet Sans";
+  line-height: 1.5;
+  color: black;
+  font-size: .9375rem;
+}
+
+ol.table-container {
+  margin: 30rem 0;
+  padding: 0;
+  background-color:white;
+}
+
+
+@media screen and (max-width: 40em) {
+  .collection-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 1rem;
+  }
+
+  .item {
+    border-bottom: 1px solid #1d1d1d;
+    border-radius: 2px;
+    padding: .625rem;
+  }
+
+  .table-container>li:first-child {
+    display: none;
+  }
+
+  .attribute::before {
+    content: attr(data-name);
+  }
+
+  /* Attribute name for first column, and attribute value for second column. */
+  .attribute {
+    display: grid;
+    grid-template-columns: minmax(9rem, 30%) 1fr;
+  }
+  .collection-container {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Tabular Layout */
+@media screen and (min-width: 40em) {
+    .table-container>li {
+      background-color:white;
+    }
+    .table-container>li:first-child {
+      border-right: 1px solid transparent;
+      background-color:#dbccbd;
+    }
+
+    .header_content {
+      padding:.5rem;
+      font-weight:bold;
+    }
+
+    /* The maximum column width, that can wrap */
+    .item-container {
+        display: grid;
+        grid-template-columns: 2fr 1fr 1fr 1fr;
+    }
+
+    /* In order to maximize row lines, only display one line for a cell */
+    .attribute {
+        border-right: 1px solid gray;
+        border-bottom: 1px solid #1d1d1d;
+        padding: .5rem;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+    }
+
+    .attribute:last-of-type {
+      border-right: none;
+    }
+
+    .collection-container>.item-container:first-child {
+        background-color: blanchedalmond;
+    }
+
+    .item-container:hover {
+        background-color: rgb(200, 227, 252);
+    }
+
+    /* Center header labels */
+    .collection-container>.item-container:first-child .attribute {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-overflow: initial;
+        overflow: auto;
+        white-space: normal;
+    }
+}
+
+.cart_subtotal {
+  font-family: "Surveyor Display A", "Surveyor Display B";
+  font-style: normal;
+  font-size: 1.96875rem;
+  line-height: 1; 
+}

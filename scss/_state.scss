@@ -1,0 +1,362 @@
+// overlay
+
+.noscroll { overflow: hidden; }
+
+.overlay-heritage {
+  opacity: 0;
+  visibility: hidden;
+  -webkit-transition: opacity 0.5s, visibility 0s 0.5s;
+  transition: opacity 0.5s, visibility 0s 0.5s;
+}
+
+.overlay-heritage.open {
+  opacity: 1;
+  visibility: visible;
+  -webkit-transition: opacity 0.5s;
+  transition: opacity 0.5s;
+}
+
+.overlay-heritage .mobile-menu {
+  -webkit-perspective: 1200px;
+  perspective: 1200px;
+}
+
+.overlay-heritage .mobile-menu ul {
+  opacity: 0.4;
+  -webkit-transform: translateY(-25%) rotateX(35deg);
+  transform: translateY(-25%) rotateX(35deg);
+  -webkit-transition: -webkit-transform 0.5s, opacity 0.5s;
+  transition: transform 0.5s, opacity 0.5s;
+}
+
+.overlay-heritage.open .mobile-menu ul {
+  opacity: 1;
+  -webkit-transform: rotateX(0deg);
+  transform: rotateX(0deg);
+}
+
+.overlay-heritage.close .mobile-menu ul {
+  -webkit-transform: translateY(25%) rotateX(-35deg);
+  transform: translateY(25%) rotateX(-35deg);
+}
+
+@media screen and (max-height: 30.5em) {
+  .overlay .mobile-menu {
+    height: 70%;
+    font-size: 34px;
+  }
+  .overlay ul li {
+    min-height: 34px;
+  }
+}
+
+// Hamburger
+
+$hamburger-width-height: 1.875rem;
+$hamburger-bar-thickness: .15rem;
+$hamburger-pad: 0rem;
+$hamburger-icon-color: #FFF;
+
+.hamburger-icon {
+  display: block;
+  position: absolute;
+  z-index:9999;
+  right:1rem;
+  top:1.3rem;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+  width: $hamburger-width-height;
+  height: $hamburger-width-height;
+  font-size: 0;
+  text-indent: -9999px;
+  appearance: none;
+  box-shadow: none;
+  border-radius: none;
+  border: none;
+  cursor: pointer;
+  transition: background $transition-duration;
+  background-color: transparent;
+  display:block;
+  @include breakpoint(medium) { 
+    display:none;
+  }
+  &:hover {
+    background: none;
+  }
+}
+
+.hamburger-icon:focus {
+  outline: none;
+}
+
+.hamburger-icon span {
+  display: block;
+  position: absolute;
+  top: ($hamburger-width-height - $hamburger-bar-thickness) / 2;
+  left: $hamburger-pad;
+  right: $hamburger-pad;
+  height: $hamburger-bar-thickness;
+  background: $hamburger-icon-color;
+  transition: background 0s $transition-duration;
+}
+
+.hamburger-icon span::before,
+.hamburger-icon span::after {
+  position: absolute;
+  display: block;
+  left: 0;
+  width: 100%;
+  height: $hamburger-bar-thickness;
+  background-color: $hamburger-icon-color;
+  content: "";
+}
+
+.hamburger-icon span::before {
+  transition-property: top, transform;
+  top: -($hamburger-bar-thickness * 2.5);
+  transition-duration: $transition-duration, $transition-duration;
+  transition-delay: $transition-duration, $transition-duration;
+}
+
+.hamburger-icon span::after {
+  transition-property: bottom, transform;
+  bottom: -($hamburger-bar-thickness * 2.5);
+}
+
+.nav-opening {
+  @include breakpoint(medium) {
+    display:none;
+  }
+}
+.nav-closing {
+  @include breakpoint(medium) {
+    display:none;
+  }
+}
+
+// toggle the nav on mobile
+
+#navigation-state {
+  height:0;
+  overflow: hidden;
+  @media screen and (min-width:35em) {
+    margin-top:-2px;
+  }
+  @include breakpoint(medium) { 
+    height:auto;
+    margin-top:0;
+  }
+}
+
+.nav-opening {
+    height: 0;
+    overflow: hidden;
+   -moz-animation: slide $transition-duration ease 0s forwards;
+   -webkit-animation: slide $transition-duration ease 0s forwards;
+   -o-animation: slide $transition-duration ease 0s forwards;
+   -ms-animation: slide $transition-duration ease 0s forwards;
+    animation: slide $transition-duration ease 0s forwards;
+}
+
+.nav-closing {
+    height: 0;
+    overflow: hidden;
+   -moz-animation: slide-out $transition-duration ease 0s backwards;
+   -webkit-animation: slide-out $transition-duration ease 0s backwards;
+   -o-animation: slide-out $transition-duration ease 0s backwards;
+   -ms-animation: slide-out $transition-duration ease 0s backwards;
+    animation: slide-out $transition-duration ease 0s backwards;
+}
+
+@-moz-keyframes slide {
+  from {height: 0;}
+  to {height: 192px;}
+}
+
+@-webkit-keyframes slide {
+  from {height: 0;}
+  to {height: 192px;}
+}
+
+@-o-keyframes slide {
+  from {height: 0;}
+  to {height: 192px;}
+}
+
+@-ms-keyframes slide {
+  from {height: 0;}
+  to {height: 192px;}
+}
+
+@keyframes slide {
+  from {height: 0;}
+  to {height: 192px;}
+}
+
+@-moz-keyframes slide-out {
+  from {height: 192px;}
+  to {height: 0px;}
+}
+
+@-webkit-keyframes slide-out {
+  from {height: 192px;}
+  to {height: 0px;}
+}
+
+@-o-keyframes slide-out {
+  from {height: 192px;}
+  to {height: 0px;}
+}
+
+@-ms-keyframes slide-out {
+  from {height: 192px;}
+  to {height: 0px;}
+}
+
+@keyframes slide-out {
+  from {height: 192px;}
+  to {height: 0px;}
+}
+
+
+// hamburger menu animations
+
+.hamburger-icon.is-active {
+  // background-color: $secondary-dark;
+}
+
+.hamburger-icon.is-active span {
+  background: none;
+}
+
+.hamburger-icon.is-active span::before {
+  top: 0;
+  transform: rotate(45deg);
+}
+
+.hamburger-icon.is-active span::after {
+  bottom: 0;
+  transform: rotate(-45deg);
+}
+
+.hamburger-icon.is-active span::before,
+.hamburger-icon.is-active span::after {
+  transition-delay: 0s, $transition-duration;
+}
+
+
+
+@keyframes slideIn {
+  0% {
+    transform: translateX(-200%);
+  } 
+  100% {
+    transform: translateX(0%);
+  }   
+}
+
+@-webkit-keyframes slideIn {
+  0% {
+    -webkit-transform: translateX(-200%);
+  }
+  100% {
+    -webkit-transform: translateX(0%);
+  } 
+}
+
+
+.slideIn{
+  animation-name: slideIn;
+  -webkit-animation-name: slideIn;  
+
+  animation-duration: 600ms; 
+  -webkit-animation-duration: 600ms;
+
+  animation-timing-function: ease;  
+  -webkit-animation-timing-function: ease;        
+}
+
+
+.slideDown{
+  animation-name: slideDown;
+  -webkit-animation-name: slideDown;  
+
+  animation-duration: 1s; 
+  -webkit-animation-duration: 1s;
+
+  animation-timing-function: ease;  
+  -webkit-animation-timing-function: ease;  
+
+  visibility: visible !important;           
+}
+
+@keyframes slideDown {
+  0% {
+    transform: translateY(-100%);
+  }
+  50%{
+    transform: translateY(8%);
+  }
+  65%{
+    transform: translateY(-4%);
+  }
+  80%{
+    transform: translateY(4%);
+  }
+  95%{
+    transform: translateY(-2%);
+  }     
+  100% {
+    transform: translateY(0%);
+  }   
+}
+
+@-webkit-keyframes slideDown {
+  0% {
+    -webkit-transform: translateY(-100%);
+  }
+  50%{
+    -webkit-transform: translateY(8%);
+  }
+  65%{
+    -webkit-transform: translateY(-4%);
+  }
+  80%{
+    -webkit-transform: translateY(4%);
+  }
+  95%{
+    -webkit-transform: translateY(-2%);
+  }     
+  100% {
+    -webkit-transform: translateY(0%);
+  } 
+}
+
+.shrink-nav .mobile-logo-area {
+  height:3rem;
+  .hamburger-icon {
+    top:.5rem;
+  }
+}
+
+.shrink-nav {
+  #large-nav {
+    height:3.5rem;
+    .hamburger-icon {
+      top:.5rem;
+    }
+  }
+}
+
+.shrink-nav h1 {
+  @include breakpoint(medium) { 
+    height:1.9rem;  
+  }
+}
+
+.shrink-breadcrumb a {
+  @include breakpoint(medium) {
+    font-size:.7rem;
+  }
+}

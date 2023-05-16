@@ -1,0 +1,17 @@
+User-agent: *
+Disallow: /bower_components/
+Disallow: /fonts/
+Disallow: /js/
+Disallow: /scripts/
+Disallow: /stylesheets/
+Disallow: /video/
+Disallow: /contact.xml
+Disallow: /contact.phtml
+Disallow: /email/
+Disallow: /invividual_purchase_limits
+Disallow: /cocktailmenu
+Disallow: /design-comps/
+Disallow: /web/admin/
+Disallow: /newsletter_square
+Disallow: /store-assets/
+Disallow: /awards

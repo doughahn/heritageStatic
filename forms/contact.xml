@@ -1,0 +1,142 @@
+<?xml version="1.0"?>
+<contact xmlns:zf="http://framework.zend.com/xml/zend-config-xml/1.0/">
+    <method>post</method>
+    <attribs>
+        <class>contact-form</class>
+    </attribs>
+
+    <legend>Send Your Message</legend>
+
+    <decorators>
+        <elements>
+            <decorator>FormElementsTemplate</decorator>
+            <options>
+                <template>contact.html</template>
+            </options>
+        </elements>
+        <form>
+            <decorator>Form</decorator>
+        </form>
+    </decorators>
+
+    <elements>
+        <name type="text">
+            <options>
+                <required>true</required>
+                <label>Name:</label>
+                <attribs>
+                    <placeholder></placeholder>
+                </attribs>
+                <validators>
+                    <required>
+                        <validator>NotEmpty</validator>
+                        <options>
+                            <type>string</type>
+                            <messages>
+                                <isEmpty>Please provide your name</isEmpty>
+                            </messages>
+                        </options>
+                    </required>
+                </validators>
+            </options>
+        </name>
+
+        <email type="text">
+            <options>
+                <required>true</required>
+                <label>Email:</label>
+                <attribs>
+                    <placeholder></placeholder>
+                </attribs>
+                <validators>
+                    <required>
+                        <validator>NotEmpty</validator>
+                        <breakChainOnFailure>true</breakChainOnFailure>
+                        <options>
+                            <type>string</type>
+                            <messages>
+                                <isEmpty>Please provide your email</isEmpty>
+                            </messages>
+                        </options>
+                    </required>
+
+                    <email>
+                        <validator>EmailAddress</validator>
+                        <options>
+                            <messages>
+                                <emailAddressInvalidFormat>Please provide a valid email addrress</emailAddressInvalidFormat>
+                            </messages>
+                        </options>
+                    </email>
+                </validators>
+            </options>
+        </email>
+
+        <reason type="select">
+            <options>
+                <label>What are you contacting us about?</label>
+                <attribs>
+                    <placeholder></placeholder>
+                </attribs>
+                <multiOptions>
+                    
+                    <inquiry><key>General Inquiry</key><value>General Inquiry</value></inquiry>
+                    <event><key>Special Event/Tasting Room Inquiry</key><value>Special Event/Tasting Room Inquiry</value></event>
+                </multiOptions>
+                <validators>
+                    <required>
+                        <validator>NotEmpty</validator>
+                        <options>
+                            <type>string</type>
+                            <messages>
+                                <isEmpty></isEmpty>
+                            </messages>
+                        </options>
+                    </required>
+                </validators>
+            </options>
+        </reason>
+
+        <message type="textarea">
+            <options>
+                <required>true</required>
+                <label>Message:</label>
+                <attribs>
+                    <placeholder></placeholder>
+                </attribs>
+                <validators>
+                    <required>
+                        <validator>NotEmpty</validator>
+                        <options>
+                            <type>string</type>
+                            <messages>
+                                <isEmpty>Please tell us why you are getting in touch.</isEmpty>
+                            </messages>
+                        </options>
+                    </required>
+                </validators>
+            </options>
+        </message>
+
+        <submit type="submit">
+            <options>
+                <label>Send your Message</label>
+            </options>
+        </submit>
+    </elements>
+
+    <honeyPotElement>TextMessage</honeyPotElement>
+
+    <sender>
+        <name>High Sierra Contact Form</name>
+        <email>kerry@bentlyheritage.com</email>
+    </sender>
+
+    <recipient>
+        <name>Wes</name>
+        <email>eventsinquiries@bentlyheritage.com</email>
+    </recipient>
+
+    <subject>A Message from a High Sierra visitor</subject>
+
+</contact>
